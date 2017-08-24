@@ -20,6 +20,8 @@ namespace VidlyTakeTwo.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Customer> Customers { get; set; }//Added this manually, otherwise the Customers table is not created in the
+        //migration
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

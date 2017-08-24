@@ -80,3 +80,5 @@ C:\Users\seren\documents\visual studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\b
 C:\Users\seren\documents\visual studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.csprojResolveAssemblyReference.cache
 C:\Users\seren\documents\visual studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.dll
 C:\Users\seren\documents\visual studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.pdb
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.InitialModel.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.csproj.GenerateResource.Cache
