@@ -1,0 +1,28 @@
+﻿@*
+   A partial view is like a small view that we can use in different views. BUT partial 
+    views are not for necessarily for reusing markup. Sometimes, we can use them to break 
+    up a view into smaller, more maintainable partial views.
+    
+    By convention, we prefix partial view names with an underscore.   
+*@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Vidly", "Home", "About", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Customers", "Index", "Customers")</li>
+                <li>@Html.ActionLink("Movies", "Index", "Movies")</li>
+                @*@ <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                Html.ActionLink CREATES A LINK TO AN ACTION IN A CONTROLLER*@
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>

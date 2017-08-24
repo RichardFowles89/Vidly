@@ -1,0 +1,52 @@
+﻿@model VidlyTakeTwo.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random"; // The title of the page shown in the browser.
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    @*
+On this page we have a mix of C# and html. To use C#, prefix it with an @.
+Every view has a property which gives us access to the model we passed to it
+in the controller.
+
+Before adding "@model VidlyTakeTwo.Models.Movie" to the top of the page, the Model in 
+<h2>@Model</h2> is of type dynamic, NOT type Movie. By adding the thing at the top, this
+turns it into type Movie, giving us access to its properties (in this case Id and Name).
+NOTE: The data passed to this view later became a ViewModel, so the code at the top of
+the page had to change. 
+
+Because we are in the Random view, and this view is inside the Movies folder, if we press
+Ctrl+F5 now our browser will take us to /Movies/Random
+    *@
+@{ 
+    var className = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <text>No one has rented this movie before.</text>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+//In this code block you can either continue writing C# or use HTML. The view engine
+//in MVC (called Razor View Engine) knows how to parse this syntax.
+
+            <li>@customer.Name</li>
+        }
+    </ul>   
+}
+@*
+        The <ul> tag defines an unordered (bulleted) list
+    Use the <ul> tag together with the <li> tag to create unordered lists.
+*@
+
+@*
+ What if we want to pass more than one model to a view? We use a ViewModel. A ViewModel 
+ is a model specifically built for a view. It includes any data and rules specific to 
+ that view. You need to create a new folder for ViewModels in the Solution Explorer.
+
+ *@
