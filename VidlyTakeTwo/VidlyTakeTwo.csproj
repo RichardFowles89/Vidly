@@ -224,6 +224,26 @@
     <Compile Include="Migrations\201708261434535_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>201708261434535_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708261525410_AddedNameToMembershipType.cs" />
+    <Compile Include="Migrations\201708261525410_AddedNameToMembershipType.Designer.cs">
+      <DependentUpon>201708261525410_AddedNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261528000_PopulatedNameColumnInMembershipTypes.cs" />
+    <Compile Include="Migrations\201708261528000_PopulatedNameColumnInMembershipTypes.Designer.cs">
+      <DependentUpon>201708261528000_PopulatedNameColumnInMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261541495_FinishAddingValuesToNameInMembershipTypes.cs" />
+    <Compile Include="Migrations\201708261541495_FinishAddingValuesToNameInMembershipTypes.Designer.cs">
+      <DependentUpon>201708261541495_FinishAddingValuesToNameInMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261609221_AddedBirthdateToCustomer.cs" />
+    <Compile Include="Migrations\201708261609221_AddedBirthdateToCustomer.Designer.cs">
+      <DependentUpon>201708261609221_AddedBirthdateToCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261630373_MadeNameInMembershipTypeNonNullable.cs" />
+    <Compile Include="Migrations\201708261630373_MadeNameInMembershipTypeNonNullable.Designer.cs">
+      <DependentUpon>201708261630373_MadeNameInMembershipTypeNonNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -328,6 +348,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708261434535_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>201708261434535_ApplyAnnotationsToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261525410_AddedNameToMembershipType.resx">
+      <DependentUpon>201708261525410_AddedNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261528000_PopulatedNameColumnInMembershipTypes.resx">
+      <DependentUpon>201708261528000_PopulatedNameColumnInMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261541495_FinishAddingValuesToNameInMembershipTypes.resx">
+      <DependentUpon>201708261541495_FinishAddingValuesToNameInMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261609221_AddedBirthdateToCustomer.resx">
+      <DependentUpon>201708261609221_AddedBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261630373_MadeNameInMembershipTypeNonNullable.resx">
+      <DependentUpon>201708261630373_MadeNameInMembershipTypeNonNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

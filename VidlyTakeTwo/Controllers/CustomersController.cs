@@ -35,7 +35,7 @@ namespace VidlyTakeTwo.Controllers
 
         public ActionResult Details(int id)
         {
-            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);//LINQ and LAMBDA
+            var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);//LINQ and LAMBDA
  //REMEMBER IF FILTERING, CONSIDER LINQ BEFORE FOREACH LOOPS
              if (customer == null)
                  return HttpNotFound();

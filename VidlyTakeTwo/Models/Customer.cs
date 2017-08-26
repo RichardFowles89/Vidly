@@ -12,6 +12,7 @@ namespace VidlyTakeTwo.Models
         [Required]//This attribute makes Name non-nullale
         [StringLength(255)]//Makes Name max length 255
         public string Name { get; set; }
+        public DateTime? Birthdate { get; set; }
         public bool IsSubscribedToNewsLetter { get; set; }
         public MembershipType MembershipType { get; set; }//Navigation Property!
         //Navigation Properties allow us to navigate from one type to another, in this case, from Customer to
