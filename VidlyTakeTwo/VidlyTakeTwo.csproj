@@ -244,9 +244,30 @@
     <Compile Include="Migrations\201708261630373_MadeNameInMembershipTypeNonNullable.Designer.cs">
       <DependentUpon>201708261630373_MadeNameInMembershipTypeNonNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708261652385_AddedGenreModel.cs" />
+    <Compile Include="Migrations\201708261652385_AddedGenreModel.Designer.cs">
+      <DependentUpon>201708261652385_AddedGenreModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261654516_AddedGenresTable.cs" />
+    <Compile Include="Migrations\201708261654516_AddedGenresTable.Designer.cs">
+      <DependentUpon>201708261654516_AddedGenresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261657247_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\201708261657247_PopulateGenresTable.Designer.cs">
+      <DependentUpon>201708261657247_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261703170_AddedColumnsToMovies.cs" />
+    <Compile Include="Migrations\201708261703170_AddedColumnsToMovies.Designer.cs">
+      <DependentUpon>201708261703170_AddedColumnsToMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708261713358_HaveMadeAllColumnsInMoviesNonNullable.cs" />
+    <Compile Include="Migrations\201708261713358_HaveMadeAllColumnsInMoviesNonNullable.Designer.cs">
+      <DependentUpon>201708261713358_HaveMadeAllColumnsInMoviesNonNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -321,6 +342,7 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -363,6 +385,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708261630373_MadeNameInMembershipTypeNonNullable.resx">
       <DependentUpon>201708261630373_MadeNameInMembershipTypeNonNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261652385_AddedGenreModel.resx">
+      <DependentUpon>201708261652385_AddedGenreModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261654516_AddedGenresTable.resx">
+      <DependentUpon>201708261654516_AddedGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261657247_PopulateGenresTable.resx">
+      <DependentUpon>201708261657247_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261703170_AddedColumnsToMovies.resx">
+      <DependentUpon>201708261703170_AddedColumnsToMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708261713358_HaveMadeAllColumnsInMoviesNonNullable.resx">
+      <DependentUpon>201708261713358_HaveMadeAllColumnsInMoviesNonNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

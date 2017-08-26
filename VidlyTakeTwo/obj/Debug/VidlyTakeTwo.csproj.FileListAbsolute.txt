@@ -91,3 +91,8 @@ C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\o
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.FinishAddingValuesToNameInMembershipTypes.resources
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddedBirthdateToCustomer.resources
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.MadeNameInMembershipTypeNonNullable.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddedGenreModel.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddedGenresTable.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.PopulateGenresTable.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddedColumnsToMovies.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.HaveMadeAllColumnsInMoviesNonNullable.resources
