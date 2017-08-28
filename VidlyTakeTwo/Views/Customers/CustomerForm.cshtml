@@ -1,4 +1,4 @@
-﻿@model VidlyTakeTwo.ViewModels.NewCustomerViewModel
+﻿@model VidlyTakeTwo.ViewModels.CustomerFormViewModel
 @{
     ViewBag.Title = "New";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,7 +8,7 @@
 @{//The BeginForm() method below returns a disposable object, so we wrap it in a using statement
   //It affectively renders the closing html </form> tag.
 }
-@using (Html.BeginForm("Create", "Customers"))
+@using (Html.BeginForm("Save", "Customers"))
 { //we need to wrap each input textbox in a div with the class "form-group
     //Instead of the below Html methods, we could just use standard html (eg <label>). However,
     //using the Html methods allows us pass the attributes of the model to the browser. If you load
@@ -26,8 +26,15 @@
 //click on the label in the browser, the corresponding textbox is highlighted. 
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Birthdate)
-        @Html.TextBoxFor(m => m.Customer.Birthdate, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Customer.Birthdate,"{0:d MMM yyyy}", new { @class = "form-control" })
     </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+    </div>
+    //SelectList() is a type used in ASP.NET to initialise a dropdown list.
+
     <div class="checkbox">
         <label>
             @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsLetter) Subscribed to Newsletter?
@@ -35,12 +42,9 @@
     </div>
     //We got the above checkbox div from getbootstrap.com. Then replaced what was inside the
     //<label>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Customer.MembershipTypeId)
-        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
-    </div>
-    //SelectList() is a type used in ASP.NET to initialise a dropdown list. 
-
+    @Html.HiddenFor(m => m.Customer.Id)//The customer id is used in Save() in the controller. So, we
+//need put it here is it gets passed to the action. It is hidden because we don't actually want to 
+//see it
     <button type="submit" class="btn btn-primary">Save</button>
 }
 

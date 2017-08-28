@@ -43,18 +43,31 @@ namespace VidlyTakeTwo.Controllers
         public ActionResult New()//For adding new Customers
         {
             var membershipTypes = _context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
                 MembershipTypes = membershipTypes
             };
-
-            return View(viewModel);
+//The corresponding view for this action was originally called 'New' like the action. We changed this
+//to 'CustomerForm'. Consequently, we now have to pass the name of the form in the View() to tell it
+//where to go
+            return View("CustomerForm", viewModel);
         }
 //Best practice - if an action modifies data, they should never be accessable via HttpGet
         [HttpPost]//This attribute ensures that this action can only be called using HttpPost, not HttpGet
-        public ActionResult Create(Customer customer)
+        public ActionResult Save(Customer customer)
         {
+            if(customer.Id == 0)//If it's a new customer
             _context.Customers.Add(customer);//This just adds the customer to memory
+            else
+            {//If it's not a new customer then we need to edit the existing record. So first, read it in...
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+                //We could use the method TryUpdateModel() here but Mosh does not recommend it
+
+                customerInDb.Name = customer.Name;//Here we are editing the data
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+            }
             _context.SaveChanges();//THIS is where the data is written to the db
             return RedirectToAction("Index", "Customers");//Finally, we go back to the Customers page
         }
@@ -65,5 +78,26 @@ namespace VidlyTakeTwo.Controllers
 //it to Customer. MVC is smart enough to bind Customer, rather than NewCustomerViewModel, to the 
 //request data because all of the keys in the form data are prefixed by 'Customer'.
 //Mosh does a cool demo of this in the lecture 'Model Binding'.
+
+        public ActionResult Edit(int id)//Allows us to edit an existing customer
+        {//In order to edit a record, it first has to be retreived from the db...
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            //If no customer has that ID in the db...
+            if(customer == null)
+            {//...return Http Not Found
+                return HttpNotFound();
+            }
+
+            var viewModel = new CustomerFormViewModel//This is the model we need to pass to 'CustomerForm'
+            {
+                Customer = customer,
+                MembershipTypes = _context.MembershipTypes.ToList()
+            };
+
+            return View("CustomerForm", viewModel);//The first arg here overrides the default convention
+//Rather than going to a View with the same name as the method, the arg is telling the View() method
+//to go to a View called CustomerForm
+        }
+
     }
 }

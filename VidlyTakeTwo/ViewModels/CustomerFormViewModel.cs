@@ -6,7 +6,7 @@ using VidlyTakeTwo.Models;
 
 namespace VidlyTakeTwo.ViewModels
 {
-    public class NewCustomerViewModel
+    public class CustomerFormViewModel
     {
         public IEnumerable<MembershipType> MembershipTypes { get; set; }
         //IEnumerable is preferable to List here because we don't need any of the List methods like Add, Remove...
