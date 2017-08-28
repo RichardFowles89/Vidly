@@ -45,6 +45,7 @@ namespace VidlyTakeTwo.Controllers
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),//Initalising the Customer sets its ID to 0, giving it a value
                 MembershipTypes = membershipTypes
             };
 //The corresponding view for this action was originally called 'New' like the action. We changed this
@@ -55,8 +56,18 @@ namespace VidlyTakeTwo.Controllers
 //Best practice - if an action modifies data, they should never be accessable via HttpGet
         [HttpPost]//This attribute ensures that this action can only be called using HttpPost, not HttpGet
         public ActionResult Save(Customer customer)
-        {
-            if(customer.Id == 0)//If it's a new customer
+        {//First we check that the properties in customer are valid. By this, I mean things like: Is the
+            //Name less than 255 chars - this requirement is set in the model using data annotations
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {//If the model state is not valid, we return the view we were just on
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
+            if (customer.Id == 0)//If it's a new customer
             _context.Customers.Add(customer);//This just adds the customer to memory
             else
             {//If it's not a new customer then we need to edit the existing record. So first, read it in...

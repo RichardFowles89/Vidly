@@ -9,11 +9,11 @@
 
 </head>
 <body>
-  @Html.Partial("_NavBar"); @*Here we are rendering the partial view _NavBar*@
+    @Html.Partial("_NavBar"); @*Here we are rendering the partial view _NavBar*@
     <div class="container body-content">
         @RenderBody()  @{// what we put in our views will be placed here when the view
 // is rendered
-        
+
         }
         <hr />
         <footer>
@@ -23,7 +23,11 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)@{ //RenderSection allows us to add a script section in
+    //our views. Look at end of CustomerForm for an example of script.
+
+    }
+    }
 </body>
 
 </html>
