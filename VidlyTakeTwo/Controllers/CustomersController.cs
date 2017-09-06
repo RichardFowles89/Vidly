@@ -55,6 +55,7 @@ namespace VidlyTakeTwo.Controllers
         }
 //Best practice - if an action modifies data, they should never be accessable via HttpGet
         [HttpPost]//This attribute ensures that this action can only be called using HttpPost, not HttpGet
+        [ValidateAntiForgeryToken]//This corresponds with the method in CustomerForm. It checks that the token left in the user's browser matches the token that is added to the form as a hidden field by the method
         public ActionResult Save(Customer customer)
         {//First we check that the properties in customer are valid. By this, I mean things like: Is the
             //Name less than 255 chars - this requirement is set in the model using data annotations

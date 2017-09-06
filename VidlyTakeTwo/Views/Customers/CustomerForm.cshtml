@@ -52,6 +52,9 @@
     @Html.HiddenFor(m => m.Customer.Id)//The customer id is used in Save() in the controller. So, we
     //need put it here is it gets passed to the action. It is hidden because we don't actually want to
     //see it
+    @Html.AntiForgeryToken()//This methods helps us protext against Cross-site Request Forgery (CSRF)
+//attacks. The methods creates a token and then puts it as a hidden field in the form and also as a 
+//cookie (encrypted) in the user's browser
     <button type="submit" class="btn btn-primary">Save</button>
 }
 

@@ -81,11 +81,11 @@ namespace VidlyTakeTwo.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movie,
+
                 Genres = _context.Genres.ToList()
-        };
+            };
 
             return View("MovieForm", viewModel);
         }
@@ -130,19 +130,12 @@ namespace VidlyTakeTwo.Controllers
             return View(movie);
         }
 
-        private IEnumerable<Movie> GetMovies() //This basically mimics a database
-        {
-            return new List<Movie>
-             {
-                 new Movie { Id = 1, Name = "Shrek" },
-                 new Movie { Id = 2, Name = "Wall-e" }
-             };
-        }
 
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();//Get the list of genres needed for the dropdown menu in New View
-            var viewModel = new MovieFormViewModel
+            var movie = new Movie();//Passing this new movie in the ctor below sets the default date and number of stock in the view
+            var viewModel = new MovieFormViewModel(movie)
             {
                 Genres = genres
             };
@@ -150,9 +143,19 @@ namespace VidlyTakeTwo.Controllers
             return View("MovieForm", viewModel);//Pass viewModel to New View
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
-            if(movie.Id == 0)
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
+            if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
