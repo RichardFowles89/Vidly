@@ -102,3 +102,5 @@ C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\b
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\System.Net.Http.Formatting.xml
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\System.Web.Http.xml
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\System.Web.Http.WebHost.xml
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\AutoMapper.dll
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\AutoMapper.xml

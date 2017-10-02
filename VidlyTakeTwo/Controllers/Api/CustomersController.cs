@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using VidlyTakeTwo.Dtos;
 using VidlyTakeTwo.Models;
 
 namespace VidlyTakeTwo.Controllers.Api
@@ -18,22 +21,22 @@ namespace VidlyTakeTwo.Controllers.Api
 
         //Because the action starts with 'Get', by convention it will do the following:
         // GET api/customers      (starts with api because it's in a folder called api)
-        public IEnumerable<Customer> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return _context.Customers.ToList();
+            var customerDtos = _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDto>);
+
+            return Ok(customerDtos);
         }
 
         //GET api/customers/1
-        public Customer GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            //Above code is part of RESTful convention. If the given resource is not found, we return the standard
-            //not found Http response
+                return NotFound();
 
-            return customer;
+            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
         //We return Customer, rather than void, in the action below because, by convention, when we create a 
         //resource we return that newly created resource to the client because that resource will probably have
@@ -41,48 +44,57 @@ namespace VidlyTakeTwo.Controllers.Api
         // POST /api/Customers
         [HttpPost]//By applying this attribute, we ensure that this action is only called when we send 
         //an HTTP Post request. Could also do this by convention by naming the action 'PostCustomer'
-        public Customer CreateCustomer(Customer customer)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
             _context.Customers.Add(customer);
             _context.SaveChanges();//After saving, the ID property of customer is set based on the ID
             //generated in the db
-            return customer;
+
+            customerDto.Id = customer.Id;//We need to update the customerDto's ID, which is set in the db
+            //before returning it.
+            return Created(new Uri(Request.RequestUri + "/" + customer.Id), customerDto);
         }
 
         // PUT  /api/customers/1
         [HttpPut]
-        public void UpdateCustomer(int id, Customer customer)
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
-            customerInDb.Name = customer.Name;
-            customerInDb.Birthdate = customer.Birthdate;
-            customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
-            customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            Mapper.Map(customerDto, customerInDb);//This line makes the below redundant
+            //customerInDb.Name = customerDto.Name; 
+            //customerInDb.Birthdate = customerDto.Birthdate;
+            //customerInDb.IsSubscribedToNewsLetter = customerDto.IsSubscribedToNewsLetter;
+            //customerInDb.MembershipTypeId = customerDto.MembershipTypeId;
 
             _context.SaveChanges();
+
+            return Ok();
         }
 
         // DELETE /api/customers/1
         [HttpDelete]
-        public void DeleteCustomer(int id)
+        public IHttpActionResult DeleteCustomer(int id)
         {
             var customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
 
             _context.Customers.Remove(customerInDb);
             _context.SaveChanges();
+
+            return Ok();
         }
     }
 }
