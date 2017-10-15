@@ -10,7 +10,9 @@ namespace VidlyTakeTwo.App_Start
         {//The ForMember() method allows us to not update the ID. This would throw an exception
             Mapper.CreateMap<Customer, CustomerDto>();//maps (source) Customer to (target) CustomerDto
             Mapper.CreateMap<CustomerDto, Customer>().ForMember(c => c.Id, opt => opt.Ignore());//maps target to source
-   //AutoMapper uses to reflection to scan the objects and map their properties based on their name.
+                                                                                                //AutoMapper uses reflection to scan the objects and map their properties based on their name.
+
+            Mapper.CreateMap<MembershipType, MembershipTypeDto>();
 
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MovieDto, Movie>().ForMember(m => m.Id, opt => opt.Ignore());
