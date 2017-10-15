@@ -24,10 +24,13 @@ namespace VidlyTakeTwo.Controllers
 
         // GET: Customers
         public ActionResult Index()
-        {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();//Customers is a DBSET defined in our Db Context
-                                                                                       //Include() is an example of Eager Loading; pulling in all the info we need before moving to the View.
-            return View(customers);
+        {//we removed the below once we added jquery the the view. It calls our api making this code
+            //redundant
+            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();//Customers is a DBSET defined in our Db Context
+            //                                                                           //Include() is an example of Eager Loading; pulling in all the info we need before moving to the View.
+            //return View(customers);
+
+            return View();
         }
 
         public ActionResult Details(int id)
