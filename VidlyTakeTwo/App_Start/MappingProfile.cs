@@ -13,6 +13,7 @@ namespace VidlyTakeTwo.App_Start
                                                                                                 //AutoMapper uses reflection to scan the objects and map their properties based on their name.
 
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
+            Mapper.CreateMap<Genre, GenreDto>();
 
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<MovieDto, Movie>().ForMember(m => m.Id, opt => opt.Ignore());

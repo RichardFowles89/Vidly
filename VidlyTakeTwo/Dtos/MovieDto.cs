@@ -15,6 +15,7 @@ namespace VidlyTakeTwo.Dtos
        // public Genre Genre { get; set; }
         [Required]
         public byte GenreId { get; set; }
+        public GenreDto Genre { get; set; }
         [Required]
         public DateTime DateAdded { get; set; }
         [Required]
