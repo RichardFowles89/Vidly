@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace VidlyTakeTwo.Controllers
 {
+    [AllowAnonymous]//This filter overrides the [Authorize] filter. Allows you to see the page without logging in
     public class HomeController : Controller
     {
         public ActionResult Index()
