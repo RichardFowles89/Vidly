@@ -104,3 +104,5 @@ C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\b
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\System.Web.Http.WebHost.xml
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\AutoMapper.dll
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\AutoMapper.xml
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.SeedUsers.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddDrivingLicenseToApplicationUser.resources

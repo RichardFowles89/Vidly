@@ -54,9 +54,9 @@ namespace VidlyTakeTwo
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "718215425029271",
+               appSecret: "4978b5f71fe7ed27f9e45d0abcd2b409");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

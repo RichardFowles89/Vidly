@@ -121,7 +121,11 @@ namespace VidlyTakeTwo.Controllers
             //var movies = _context.Movies.Include(m => m.Genre).ToList();
 
             //return View(movies);
-            return View();
+
+            if (User.IsInRole(RoleName.CanManageMovies))//Here we are giving different levels of access depending on the user's role
+                return View("List");
+
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
@@ -130,8 +134,8 @@ namespace VidlyTakeTwo.Controllers
 
             return View(movie);
         }
-
-
+        //The below filter overrides the global filter we created in the filter config
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();//Get the list of genres needed for the dropdown menu in New View

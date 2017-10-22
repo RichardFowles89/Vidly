@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System.Linq;
@@ -148,12 +149,25 @@ namespace VidlyTakeTwo.Controllers
         {//if the model passed to the action is valid...
             if (ModelState.IsValid)
             {//we create a new user.
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    DrivingLicense = model.DrivingLicense
+                };
                 //Then we call UserManager (part of api we use to work with users). It has methods like Create, Remove...
                 var result = await UserManager.CreateAsync(user, model.Password);
                 //If CreateAsync() method is successful...
                 if (result.Succeeded)
-                {//...we use SignInManager, which is used for signing in, signing out etc...
+                {
+                    //Temp code
+                    //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+                    //var roleManager = new RoleManager<IdentityRole>(roleStore);
+                    //await roleManager.CreateAsync(new IdentityRole("CanManageMovies"));
+                    //await UserManager.AddToRoleAsync(user.Id, "CanManageMovies");
+                    
+                    
+                    //...we use SignInManager, which is used for signing in, signing out etc...
                  //The line of code below signs you in automatically when you register.
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
@@ -367,7 +381,12 @@ namespace VidlyTakeTwo.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    DrivingLicense = model.DrivingLicense
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
