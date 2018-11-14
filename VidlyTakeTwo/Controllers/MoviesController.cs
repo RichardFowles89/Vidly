@@ -8,6 +8,7 @@ using VidlyTakeTwo.ViewModels;
 
 namespace VidlyTakeTwo.Controllers
 {
+    //[Authorize(Roles = RoleName.CanManageMovies)]
     public class MoviesController : Controller
     {
         private ApplicationDbContext _context;

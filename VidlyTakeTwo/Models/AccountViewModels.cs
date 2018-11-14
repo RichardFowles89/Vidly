@@ -11,6 +11,9 @@ namespace VidlyTakeTwo.Models
         [Required]
         [Display(Name = "Driving License")]
         public string DrivingLicense { get; set; }
+        [Required]
+        [Display(Name = "Phone")]
+        public string PhoneNum { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -70,6 +73,9 @@ namespace VidlyTakeTwo.Models
         [Required]
         [Display(Name = "Driving License")]
         public string DrivingLicense { get; set; }
+        [Required]
+        [Display(Name = "Phone")]
+        public string PhoneNum { get; set; }
 
         [Required]
         [EmailAddress]

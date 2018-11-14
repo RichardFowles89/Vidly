@@ -106,3 +106,12 @@ C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\b
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\AutoMapper.xml
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.SeedUsers.resources
 C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddDrivingLicenseToApplicationUser.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddPhoneNumberToApplicationUser.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\Glimpse.Ado.dll
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\Glimpse.AspNet.dll
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\Glimpse.Core.dll
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\Glimpse.EF6.dll
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\bin\Glimpse.Mvc5.dll
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddedRentals.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.AddedNumberAvailableToMovie.resources
+C:\Users\seren\Documents\Visual Studio 2015\Projects\VidlyTakeTwo\VidlyTakeTwo\obj\Debug\VidlyTakeTwo.Migrations.SetNumberAvailableToNumberInStock.resources

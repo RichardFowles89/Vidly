@@ -14,7 +14,9 @@ namespace VidlyTakeTwo
                         "~/Scripts/bootbox.js",//these are libraries we added, making client-side dev easier
                         "~/Scripts/respond.js",
                         "~/scripts/datatables/jquery.datatables.js",
-                        "~/scripts/datatables/datatables.bootstrap.js"));
+                        "~/scripts/datatables/datatables.bootstrap.js",
+                        "~/scripts/typeahead.bundle.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(//by default this bundle is not
                         "~/Scripts/jquery.validate*"));//not referenced anywhere. When we reference it,
@@ -33,6 +35,7 @@ namespace VidlyTakeTwo
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap-lumen.css",
                       "~/content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }

@@ -153,7 +153,8 @@ namespace VidlyTakeTwo.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    DrivingLicense = model.DrivingLicense
+                    DrivingLicense = model.DrivingLicense,
+                    PhoneNum = model.PhoneNum
                 };
                 //Then we call UserManager (part of api we use to work with users). It has methods like Create, Remove...
                 var result = await UserManager.CreateAsync(user, model.Password);
